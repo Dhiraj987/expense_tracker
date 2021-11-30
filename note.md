@@ -15,18 +15,16 @@
         - there will be at least two tables to track expenses and income
             - Expense: (this table will store all the expenses)
                 - ID
-                - Date
-                - Timestamp
-                - Category (the UI will provide some pre-defines category but also give user the ability to add a category)
-                - Amount
-                - Other Notes
+                - sate
+                - category (the UI will provide some pre-defines category but also give user the ability to add a category)
+                - amount
+                - notes
             - Income: (this table will store all the income or earnings)
                 - ID
-                - Date
-                - Timestamp
-                - Source
-                - Amount
-                - Other notes
+                - date
+                - source
+                - amount
+                - notes
             - Overview: (this table is supposed to give an overview of the expense and income for each month)
                 - ID
                 - Category
