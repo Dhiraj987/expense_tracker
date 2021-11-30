@@ -13,21 +13,24 @@
     - Database:
         - MongoDB will be used as database management for this project
         - there will be at least two tables to track expenses and income
-            - Expense table:
+            - Expense:
                 - ID
                 - Date
                 - Timestamp
-                - Category (the UI will provide some pre-defines category but   
-                    also give user the ability to add a category)
+                - Category (the UI will provide some pre-defines category but also give user the ability to add a category)
                 - Amount
                 - Other Notes
-            - Income table:
+            - Income:
                 - ID
                 - Date
                 - Timestamp
                 - Source
                 - Amount
                 - Other notes
-        - all the tables are independent on one another
+            - Category:
+                - ID
+                - Title
+
+        - only expense and category table will be dependent on one another and all other tables are independent
 
         
