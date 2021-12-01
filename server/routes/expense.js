@@ -1,9 +1,8 @@
 import express from "express";
-
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("This works");
-});
+
+import {getExpense} from '../controller/expense_cont.js'
+router.get("/", getExpense);
 
 export default router;
