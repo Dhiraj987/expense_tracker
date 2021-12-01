@@ -1,15 +1,19 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "a simple app that helps track expenses",
+  "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Dhiraj",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^5.0.1"
+    "mongodb": "^4.2.1"
   }
 }
