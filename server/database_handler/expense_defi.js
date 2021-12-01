@@ -18,16 +18,24 @@ const expenseSchema = new mongoose.Schema({
 // creates an expense class from the schema defined above
 const Expense = mongoose.model("Expense", expenseSchema);
 
+// a function to insert a new document in the expense collection
 async function insertExpense(exp_dic) {
-  // create a object-- a document-- from the class
+  // create a object-- a document-- from the input
   const exp = new Expense({
     category: exp_dic.category,
     amount: exp_dic.amount,
     notes: exp_dic.notes,
   });
+  // save the object to the collection and display it to the console
+  await exp.save();
+}
 
-  const result = await exp.save();
-  console.log(result);
+// a function to fetch all the expense entries in the expense collection
+async function fetchExpenses() {
+  const allExpenses = await Expense.find({});
+  const inJson = JSON.stringify(allExpenses);
+  return inJson
 }
 
 module.exports.insertExpense = insertExpense;
+module.exports.fetchExpenses = fetchExpenses;

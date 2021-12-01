@@ -30,4 +30,14 @@ async function insertIncome(inc_dic) {
   console.log(result);
 }
 
+// a function to fetch all the expense entries in the expense collection
+// async function fetchIncomes() {
+//   const allIncomes = await Income.find();
+//   console.log(allIncomes[0][model][_doc]);
+//   return allIncomes
+// }
+
+
+// module.exports.fetchExpenses = fetchExpenses;
+
 module.exports.insertIncome = insertIncome;
