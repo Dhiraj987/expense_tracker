@@ -14,6 +14,9 @@ const app = express();
 // used for cross validation while in dev mode
 app.use(cors());
 
+// used to access and include the jsons
+app.use(express.json())
+
 // connect the expenses routes to the app
 import expenseRoute from "./routes/expense.js";
 app.use("/exp", expenseRoute);
