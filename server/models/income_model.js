@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const incomeSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
   income_source: String,
-  amount: Number,
+  amount: { type: Number, required: true },
   notes: String,
 });
 
