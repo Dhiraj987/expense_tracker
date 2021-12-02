@@ -11,4 +11,5 @@ const expenseSchema = new mongoose.Schema({
 // creates an expense class from the schema defined above
 const Expense = mongoose.model("Expense", expenseSchema);
 
+// export the newly created expense object
 export default Expense;

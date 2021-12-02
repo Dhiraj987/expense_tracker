@@ -11,4 +11,5 @@ const incomeSchema = new mongoose.Schema({
 // creates an income class from the schema defined above
 const Income = mongoose.model("Income", incomeSchema);
 
+// export the newly created income object
 export default Income;
