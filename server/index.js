@@ -13,7 +13,7 @@ const app = express();
 
 // used for cross validation while in dev mode
 app.use(cors());
-// used to access and include the jsons
+// used to access and include json files
 app.use(express.json())
 
 
