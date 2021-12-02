@@ -7,8 +7,9 @@ const router = express.Router();
  *  proper function in the controller file
  * */
 
-import { getExpense, insertExpense } from "../controller/expense_cont.js";
+import { getExpense, insertExpense, updateExpense } from "../controller/expense_cont.js";
 router.get("/", getExpense);
-router.post("/insert/", insertExpense);
+router.post("/", insertExpense);
+router.patch("/:id", updateExpense)
 
 export default router;

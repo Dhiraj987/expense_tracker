@@ -1,6 +1,6 @@
 // imports the data access object created in the model dir
 import Income from "../models/income_model.js";
-
+import mongoose from "mongoose";
 
 // exports the function getIncome that sends all the income-data (document) in the data collection
 export const getIncome = async (req, res) => {
@@ -30,4 +30,32 @@ export const insertIncome = async (req, res) => {
   } catch (err) {
     res.status(409).json({ message: err.message });
   }
+};
+
+
+// exports a function that takes in an id and updates some value in the document
+export const updateIncome = async (req, res) => {
+  // takes the id from params and stores it in the id
+  const id = req.params.id;
+  // from the json gets all the info and stores them in each const
+  const income_source = req.body.income_source;
+  const amount = req.body.amount;
+  const notes = req.body.notes;
+
+  // does a check to make sure the entered id is a mongoose valid id
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`The id: ${id} is invalid`);
+
+  // create an object with the Income model class
+  const updatedIncome = {
+    income_source: income_source,
+    amount: amount,
+    notes: notes,
+    _id: id,
+  };
+
+  // finds an updates the document based on the id and returns the updated, new document
+  await Income.findByIdAndUpdate(id, updatedIncome, { new: true });
+
+  res.json(updatedIncome);
 };
