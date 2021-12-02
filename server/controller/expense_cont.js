@@ -17,6 +17,7 @@ export const getExpense = async (req, res) => {
 export const insertExpense = async (req, res) => {
   // from the receiving json, creates an obj with the right params
   const newObj = {
+    date: new Date(req.body.date),
     category: req.body.category,
     amount: req.body.amount,
     notes: req.body.notes,
@@ -38,6 +39,7 @@ export const updateExpense = async (req, res) => {
   // takes the id from params and stores it in the id
   const id = req.params.id;
   // from the json gets all the info and stores them in each const
+  const date = new Date(req.body.date);
   const category = req.body.category;
   const amount = req.body.amount;
   const notes = req.body.notes;
@@ -48,6 +50,7 @@ export const updateExpense = async (req, res) => {
 
   // create an object with the Expense model class
   const updatedExpense = {
+    date: date,
     category: category,
     amount: amount,
     notes: notes,
@@ -56,6 +59,17 @@ export const updateExpense = async (req, res) => {
 
   // finds an updates the document based on the id and returns the updated, new document
   await Expense.findByIdAndUpdate(id, updatedExpense, { new: true });
-
   res.json(updatedExpense);
+};
+
+
+// exports a function that deletes a document from the collection given the id
+export const deleteExpense = async (req, res) => {
+  const id = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`No income entry with id: ${id}`);
+
+  await Expense.findByIdAndRemove(id);
+  res.json({ message: "The income deleted successfully." });
 };

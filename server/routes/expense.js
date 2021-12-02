@@ -7,9 +7,10 @@ const router = express.Router();
  *  proper function in the controller file
  * */
 
-import { getExpense, insertExpense, updateExpense } from "../controller/expense_cont.js";
+import { getExpense, insertExpense, updateExpense, deleteExpense } from "../controller/expense_cont.js";
 router.get("/", getExpense);
 router.post("/", insertExpense);
-router.patch("/:id", updateExpense)
+router.patch("/:id", updateExpense);
+router.delete("/:id", deleteExpense);
 
 export default router;

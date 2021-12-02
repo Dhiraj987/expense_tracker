@@ -26,7 +26,10 @@ app.use("/exp", expenseRoute);
 import incomeRoute from "./routes/income.js";
 app.use("/inc", incomeRoute);
 
-
+// returns an error if the client reaches an url that's not already defined
+app.use("*", (req, res) => {
+  res.status(404).json({error:'invalid url, try again'})
+})
 
 // gets the port and the url from the .env file
 import dotenv from "dotenv";
