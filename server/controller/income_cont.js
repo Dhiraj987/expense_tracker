@@ -12,7 +12,6 @@ export const getIncome = async (req, res) => {
   }
 };
 
-
 // exports a post function that takes a json and saves the data in the income collection
 export const insertIncome = async (req, res) => {
   // create a object from all the incoming value in the req
@@ -33,13 +32,12 @@ export const insertIncome = async (req, res) => {
   }
 };
 
-
 // exports a function that takes in an id and updates some value in the document
 export const updateIncome = async (req, res) => {
   // takes the id from params and stores it in the id
   const id = req.params.id;
   // from the json gets all the info and stores them in each const
-  const date= new Date(req.body.date);
+  const date = new Date(req.body.date);
   const income_source = req.body.income_source;
   const amount = req.body.amount;
   const notes = req.body.notes;
@@ -50,7 +48,7 @@ export const updateIncome = async (req, res) => {
 
   // create an object with the Income model class
   const updatedIncome = {
-    date:date,
+    date: date,
     income_source: income_source,
     amount: amount,
     notes: notes,
@@ -61,7 +59,6 @@ export const updateIncome = async (req, res) => {
   await Income.findByIdAndUpdate(id, updatedIncome, { new: true });
   res.json(updatedIncome);
 };
-
 
 // exports a function that deletes a document from the collection given the id
 export const deleteIncome = async (req, res) => {

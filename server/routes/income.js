@@ -8,7 +8,12 @@ const router = express.Router();
  */
 
 // from the controller dir imports the functions that will do the actual work
-import { getIncome, insertIncome, updateIncome, deleteIncome } from "../controller/income_cont.js";
+import {
+  getIncome,
+  insertIncome,
+  updateIncome,
+  deleteIncome,
+} from "../controller/income_cont.js";
 router.get("/", getIncome);
 router.post("/", insertIncome);
 router.patch("/:id", updateIncome);

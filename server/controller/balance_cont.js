@@ -7,8 +7,6 @@ import Balance from "../models/balance_model.js";
 
 // this function will populate the balance table with all the details
 export const updateBalance = async (req, res) => {
-
-
   await Balance.deleteMany({});
   var array_for_expenses = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   var array_for_income = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -66,7 +64,7 @@ export const updateBalance = async (req, res) => {
       month: array_for_month[i],
       income: array_for_income[i],
       expense: array_for_expenses[i],
-      balance: array_for_income[i] - array_for_expenses[i]
+      balance: array_for_income[i] - array_for_expenses[i],
     };
 
     const obj = Balance(newObj);
@@ -77,5 +75,5 @@ export const updateBalance = async (req, res) => {
     }
   }
 
-  res.json({message: "done" });
+  res.json({ message: "done" });
 };

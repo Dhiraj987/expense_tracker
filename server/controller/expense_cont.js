@@ -12,7 +12,6 @@ export const getExpense = async (req, res) => {
   }
 };
 
-
 // exports a function that takes in a json with some data and saves it to the Expense collection
 export const insertExpense = async (req, res) => {
   // from the receiving json, creates an obj with the right params
@@ -32,7 +31,6 @@ export const insertExpense = async (req, res) => {
     res.status(409).json({ message: err.message });
   }
 };
-
 
 // exports a function that takes in an id and updates some value in the document
 export const updateExpense = async (req, res) => {
@@ -61,7 +59,6 @@ export const updateExpense = async (req, res) => {
   await Expense.findByIdAndUpdate(id, updatedExpense, { new: true });
   res.json(updatedExpense);
 };
-
 
 // exports a function that deletes a document from the collection given the id
 export const deleteExpense = async (req, res) => {
