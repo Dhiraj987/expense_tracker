@@ -1,9 +1,21 @@
 import React from "react";
-import { Switch, Rout, Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/homePage";
+import ExpensePage from "./pages/expensePage.jsx";
+import IncomePage from "./pages/incomePage.jsx";
 
-function App() {
-  return <div className="App">Hello, World!</div>;
-}
+const App = () => {
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/inc" element={<IncomePage />} />
+          <Route path="/exp" element={<ExpensePage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+};
 
 export default App;
