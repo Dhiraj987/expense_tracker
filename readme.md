@@ -99,10 +99,17 @@
     - frontend in iteration 1
            the frontend in iteration 1 has three pages, the balance page, income page, and expense page
            there will be some updates in the second iteration
+            <img width="750" alt="Screen Shot 2021-12-15 at 1 11 53 AM" src="https://user-images.githubusercontent.com/54525683/146133140-13cfd7ec-8ade-47b7-bddd-205037ad2a30.png">
+           
+            <img width="750" alt="Screen Shot 2021-12-15 at 1 13 00 AM" src="https://user-images.githubusercontent.com/54525683/146133277-e05a6526-555c-4e2d-b7cb-4bb2529f7ce1.png">
+            <img width="750" alt="Screen Shot 2021-12-15 at 1 14 29 AM" src="https://user-images.githubusercontent.com/54525683/146133458-9eb99396-a3f6-49d1-81cb-ce34f42463db.png">
+
     
     - databse in iteration 1
             [Mongodb Atlas](https://www.mongodb.com/atlas/database) was used to store the data in cloud
             the schema mentioned above was implemented
+            
+            <img width="750" alt="Screen Shot 2021-12-15 at 1 15 08 AM" src="https://user-images.githubusercontent.com/54525683/146133501-2093ed33-4786-461b-a239-42529031086d.png">
 
 4. TODOs for iteration 2
     - extend the front end to include create and update
