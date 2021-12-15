@@ -4,128 +4,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TrackerDataService from "../services/allServices";
 import { set } from "mongoose";
 import logo from "../bg.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function App() {
-  //   const [balances, setBalances] = useState([]);
+  const [balances, setBalances] = useState([]);
 
-  //   useEffect(() => {
-  //     TrackerDataService.getBal().then((resp) => {
-  //       console.log(resp.data);
-  //       setBalances(resp.data);
-  //     });
-  //   });
-
-  var balances = [
-    {
-      _id: "61aaba97a7d789a762ed94a3",
-      year: 2021,
-      month: "January",
-      income: 1200,
-      expense: 1110,
-      balance: 90,
-      __v: 0,
-    },
-    {
-      _id: "61aaba97a7d789a762ed94a5",
-      year: 2021,
-      month: "February",
-      income: 0,
-      expense: 0,
-      balance: 0,
-      __v: 0,
-    },
-    {
-      _id: "61aaba97a7d789a762ed94a7",
-      year: 2021,
-      month: "March",
-      income: 0,
-      expense: 0,
-      balance: 0,
-      __v: 0,
-    },
-    {
-      _id: "61aaba97a7d789a762ed94a9",
-      year: 2021,
-      month: "April",
-      income: 0,
-      expense: 0,
-      balance: 0,
-      __v: 0,
-    },
-    {
-      _id: "61aaba97a7d789a762ed94ab",
-      year: 2021,
-      month: "May",
-      income: 0,
-      expense: 0,
-      balance: 0,
-      __v: 0,
-    },
-    {
-      _id: "61aaba97a7d789a762ed94ad",
-      year: 2021,
-      month: "June",
-      income: 0,
-      expense: 0,
-      balance: 0,
-      __v: 0,
-    },
-    {
-      _id: "61aaba97a7d789a762ed94af",
-      year: 2021,
-      month: "July",
-      income: 0,
-      expense: 0,
-      balance: 0,
-      __v: 0,
-    },
-    {
-      _id: "61aaba97a7d789a762ed94b1",
-      year: 2021,
-      month: "August",
-      income: 0,
-      expense: 0,
-      balance: 0,
-      __v: 0,
-    },
-    {
-      _id: "61aaba97a7d789a762ed94b3",
-      year: 2021,
-      month: "September",
-      income: 0,
-      expense: 0,
-      balance: 0,
-      __v: 0,
-    },
-    {
-      _id: "61aaba97a7d789a762ed94b5",
-      year: 2021,
-      month: "October",
-      income: 0,
-      expense: 0,
-      balance: 0,
-      __v: 0,
-    },
-    {
-      _id: "61aaba97a7d789a762ed94b7",
-      year: 2021,
-      month: "November",
-      income: 200,
-      expense: 110,
-      balance: 90,
-      __v: 0,
-    },
-    {
-      _id: "61aaba97a7d789a762ed94b9",
-      year: 2021,
-      month: "December",
-      income: 460,
-      expense: 127,
-      balance: 333,
-      __v: 0,
-    },
-  ];
+  useEffect(() => {
+    TrackerDataService.getBal().then((resp) => {
+      console.log(resp.data);
+      setBalances(resp.data);
+    });
+  }, []);
 
   return (
     <div>
@@ -143,7 +31,6 @@ function App() {
           {" "}
           Expense Tracker
         </a>
-        <FontAwesomeIcon icon="fa-thin fa-wallet" />
         <div
           className="navbar-nav mr-auto"
           style={{

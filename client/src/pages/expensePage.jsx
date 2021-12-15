@@ -4,59 +4,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TrackerDataService from "../services/allServices";
 import { set } from "mongoose";
 import logo from "../bg.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function App() {
-  //   const [expenses, setExpenses] = useState([]);
+  const [expenses, setExpenses] = useState([]);
 
-  // useEffect(() => {
-  //   TrackerDataService.getExp().then((resp) => {
-  //     setExpenses(resp.data);
-  //   });
-  // });
-
-  var expenses = [
-    {
-      _id: "61a82c28950f1a9946c2b7a1",
-      category: "Grocery",
-      amount: 110,
-      notes: "Spagetti",
-      date: "2021-12-02T02:15:04.469Z",
-      __v: 0,
-    },
-    {
-      _id: "61a85791b40f58dd41754c8c",
-      date: "2021-11-01T00:00:00.000Z",
-      category: "GroEducery",
-      amount: 110,
-      notes: "Spagetti",
-      __v: 0,
-    },
-    {
-      _id: "61a8579ab40f58dd41754c8e",
-      date: "2021-01-01T00:00:00.000Z",
-      category: "GroEducery",
-      amount: 110,
-      notes: "Spagetti",
-      __v: 0,
-    },
-    {
-      _id: "61a857c2b40f58dd41754c91",
-      date: "2021-01-01T00:00:00.000Z",
-      category: "Education",
-      amount: 500,
-      notes: "Spagetti",
-      __v: 0,
-    },
-    {
-      _id: "61a85998760d15cde9753aee",
-      date: "2021-01-01T00:00:00.000Z",
-      category: "Education",
-      amount: 500,
-      notes: "Spagetti",
-      __v: 0,
-    },
-  ];
+  useEffect(() => {
+    TrackerDataService.getExp().then((resp) => {
+      {
+        console.log("parsed the data");
+      }
+      setExpenses(resp.data);
+    });
+  }, []);
 
   return (
     <div>
@@ -74,7 +33,6 @@ function App() {
           {" "}
           Expense Tracker
         </a>
-        <FontAwesomeIcon icon="fa-thin fa-wallet" />
         <div
           className="navbar-nav mr-auto"
           style={{
@@ -145,9 +103,21 @@ function App() {
                 <td> {exp.notes} </td>
                 <td>
                   {" "}
-                  <button className="btn btn-info "> Edit </button>
+                  <button
+                    onClick={TrackerDataService.updateExp(exp._id, exp)}
+                    className="btn btn-info btn-sm"
+                  >
+                    {" "}
+                    Edit{" "}
+                  </button>
                   {"  "}
-                  <button className="btn btn-danger "> Delete </button>
+                  <button
+                    onClick={TrackerDataService.deleteExp(exp._id)}
+                    className="btn btn-danger btn-sm"
+                  >
+                    {" "}
+                    Delete{" "}
+                  </button>
                   {"  "}
                 </td>
               </tr>

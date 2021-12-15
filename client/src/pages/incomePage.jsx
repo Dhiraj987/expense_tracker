@@ -4,75 +4,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TrackerDataService from "../services/allServices";
 import { set } from "mongoose";
 import logo from "../bg.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function App() {
-  // const [incomes, setIncomes] = useState([]);
+  const [incomes, setIncomes] = useState([]);
 
-  // useEffect(() => {
-  //   TrackerDataService.getInc().then((resp) => {
-  //     setIncomes(resp.data);
-  //   });
-  // });
-
-  var incomes = [
-    {
-      _id: "61a8311fc3fcb8061b53865c",
-      income_source: "Tari",
-      amount: 160,
-      notes: "iykyk",
-      date: "2021-12-02T02:36:15.976Z",
-      __v: 0,
-    },
-    {
-      _id: "61a842ddcfca1327e758f601",
-      income_source: "VernG",
-      amount: 100,
-      notes: "ad",
-      date: "2021-12-02T03:51:57.019Z",
-      __v: 0,
-    },
-    {
-      _id: "61a842f8cfca1327e758f603",
-      income_source: "VernG",
-      amount: 100,
-      notes: "ad",
-      date: "2021-12-02T03:52:24.293Z",
-      __v: 0,
-    },
-    {
-      _id: "61a84368e3cd101920083d1c",
-      date: "2021-12-01T00:00:00.000Z",
-      income_source: "adsf",
-      amount: 100,
-      notes: "ad",
-      __v: 0,
-    },
-    {
-      _id: "61a84377e3cd101920083d1e",
-      date: "2021-11-01T00:00:00.000Z",
-      income_source: "try2",
-      amount: 100,
-      notes: "ad",
-      __v: 0,
-    },
-    {
-      _id: "61a876a3b5b82e2c53f708f7",
-      date: "2021-11-01T00:00:00.000Z",
-      income_source: "afd",
-      amount: 100,
-      notes: "ad",
-      __v: 0,
-    },
-    {
-      _id: "61a876b0b5b82e2c53f708f9",
-      date: "2021-01-01T05:00:00.000Z",
-      income_source: "afd",
-      amount: 1200,
-      notes: "ad",
-      __v: 0,
-    },
-  ];
+  useEffect(() => {
+    TrackerDataService.getInc().then((resp) => {
+      {
+        console.log("parsed income");
+      }
+      setIncomes(resp.data);
+    });
+  }, []);
 
   return (
     <div>
@@ -90,7 +33,6 @@ function App() {
           {" "}
           Expense Tracker
         </a>
-        <FontAwesomeIcon icon="fa-thin fa-wallet" />
         <div
           className="navbar-nav mr-auto"
           style={{
