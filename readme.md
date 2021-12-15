@@ -109,5 +109,5 @@
     - style the front end
     - document the APIs using swagger
 
-Instructions to set up the backend and frontend can be found at [backend](https://github.com/Dhiraj987/expense_tracker/blob/main/server/README.md) and [frontend](https://github.com/Dhiraj987/expense_tracker/blob/main/client/README.md)
+Instructions to set up the backend and frontend can be found at [backend](https://github.com/Dhiraj987/expense_tracker/blob/main/server/readme.md) and [frontend](https://github.com/Dhiraj987/expense_tracker/blob/main/client/README.md)
     
