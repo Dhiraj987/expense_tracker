@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TrackerDataService from "../services/allServices";
-import { set } from "mongoose";
 import logo from "../bg.png";
 
 function App() {
   const [expenses, setExpenses] = useState([]);
+  const [click, setClicked] = useState([]);
 
   useEffect(() => {
     TrackerDataService.getExp().then((resp) => {
@@ -15,7 +15,11 @@ function App() {
       }
       setExpenses(resp.data);
     });
-  }, []);
+  }, [click]);
+
+  function toggleClick() {
+    setClicked(!click);
+  }
 
   return (
     <div>
@@ -93,6 +97,7 @@ function App() {
             {" "}
             {expenses.map((exp) => (
               <tr
+                key={exp._id}
                 style={{
                   textAlign: "center",
                 }}
@@ -104,15 +109,12 @@ function App() {
                 <td>
                   {" "}
                   <button
-                    onClick={TrackerDataService.updateExp(exp._id, exp)}
-                    className="btn btn-info btn-sm"
-                  >
-                    {" "}
-                    Edit{" "}
-                  </button>
-                  {"  "}
-                  <button
-                    onClick={TrackerDataService.deleteExp(exp._id)}
+                    onClick={() => {
+                      TrackerDataService.deleteExp(exp._id);
+                      {
+                        toggleClick();
+                      }
+                    }}
                     className="btn btn-danger btn-sm"
                   >
                     {" "}

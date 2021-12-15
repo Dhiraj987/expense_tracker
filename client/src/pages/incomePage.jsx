@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TrackerDataService from "../services/allServices";
-import { set } from "mongoose";
 import logo from "../bg.png";
 
 function App() {
   const [incomes, setIncomes] = useState([]);
+  const [click, setClicked] = useState([]);
 
   useEffect(() => {
     TrackerDataService.getInc().then((resp) => {
@@ -15,7 +15,11 @@ function App() {
       }
       setIncomes(resp.data);
     });
-  }, []);
+  }, [click]);
+
+  function toggleClick() {
+    setClicked(!click);
+  }
 
   return (
     <div>
@@ -86,12 +90,14 @@ function App() {
               <th>Income Source</th>
               <th>Amount</th>
               <th>Notes </th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {" "}
             {incomes.map((inc) => (
               <tr
+                key={inc._id}
                 style={{
                   textAlign: "center",
                 }}
@@ -100,6 +106,22 @@ function App() {
                 <td> {inc.income_source} </td>
                 <td> {inc.amount} </td>
                 <td> {inc.notes} </td>
+                <td>
+                  {" "}
+                  <button
+                    onClick={() => {
+                      TrackerDataService.deleteInc(inc._id);
+                      {
+                        toggleClick();
+                      }
+                    }}
+                    className="btn btn-danger btn-sm"
+                  >
+                    {" "}
+                    Delete{" "}
+                  </button>
+                  {"  "}
+                </td>
               </tr>
             ))}
           </tbody>
