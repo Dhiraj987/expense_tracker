@@ -57,7 +57,7 @@
                 - type: patch
                 - function: updates a previously stored income
                 - parameteres: id <br />
-                <img width="804" alt="Screen Shot 2021-12-15 at 12 38 58 AM" src="https://user-images.githubusercontent.com/54525683/146129760-162a116b-9f2e-44eb-8b1f-84c1be62d72e.png">
+                <img width="550" alt="Screen Shot 2021-12-15 at 12 38 58 AM" src="https://user-images.githubusercontent.com/54525683/146129760-162a116b-9f2e-44eb-8b1f-84c1be62d72e.png">
 
 
             4.  - link: /inc
@@ -108,3 +108,6 @@
     - extend the front end to include create and update
     - style the front end
     - document the APIs using swagger
+
+Instructions to set up the backend and frontend can be found at [backend](https://github.com/Dhiraj987/expense_tracker/blob/main/server/README.md) and [frontend](https://github.com/Dhiraj987/expense_tracker/blob/main/client/README.md)
+    
